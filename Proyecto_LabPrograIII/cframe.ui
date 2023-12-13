@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>725</width>
-    <height>775</height>
+    <width>759</width>
+    <height>761</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -240,9 +240,9 @@ border-color: rgb(33, 33, 33);</string>
      <widget class="QLabel" name="label_Titulo">
       <property name="geometry">
        <rect>
-        <x>140</x>
+        <x>90</x>
         <y>30</y>
-        <width>481</width>
+        <width>561</width>
         <height>41</height>
        </rect>
       </property>
@@ -254,14 +254,14 @@ border-color: rgb(33, 33, 33);</string>
        </font>
       </property>
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt; color:#212121;&quot;&gt;Reservación de Laboratorio&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:20pt; color:#212121;&quot;&gt;Reservación de Laboratorio&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>100</y>
+        <x>10</x>
+        <y>90</y>
         <width>161</width>
         <height>31</height>
        </rect>
@@ -280,8 +280,8 @@ border-color: rgb(33, 33, 33);</string>
        <rect>
         <x>10</x>
         <y>180</y>
-        <width>341</width>
-        <height>16</height>
+        <width>481</width>
+        <height>21</height>
        </rect>
       </property>
       <property name="font">
@@ -292,7 +292,7 @@ border-color: rgb(33, 33, 33);</string>
        </font>
       </property>
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#212121;&quot;&gt;Clase por la cuál requiere el uso del Laboratorio*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; color:#212121;&quot;&gt;Clase por la cuál requiere el uso del Laboratorio&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_5">
@@ -312,7 +312,7 @@ border-color: rgb(33, 33, 33);</string>
        </font>
       </property>
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#212121;&quot;&gt;Motivo de uso del Laboratorio*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:7pt; color:#212121;&quot;&gt;Motivo de uso del Laboratorio*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit_ClaseRequerida">
@@ -473,7 +473,7 @@ border-color: rgb(33, 33, 33);</string>
        </font>
       </property>
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#212121;&quot;&gt;Perfil del Solicitante: *&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:7pt; color:#212121;&quot;&gt;Perfil del Solicitante:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="QComboBox" name="CBX_PerfSol">
@@ -601,7 +601,7 @@ border-color: rgb(33, 33, 33);</string>
        <rect>
         <x>10</x>
         <y>420</y>
-        <width>161</width>
+        <width>261</width>
         <height>16</height>
        </rect>
       </property>
@@ -613,7 +613,7 @@ border-color: rgb(33, 33, 33);</string>
        </font>
       </property>
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#212121;&quot;&gt;Nombre Completo: *&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:7pt; color:#212121;&quot;&gt;Nombre Completo:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_8">
@@ -633,7 +633,7 @@ border-color: rgb(33, 33, 33);</string>
        </font>
       </property>
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#212121;&quot;&gt;Numero de Cuenta: *&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:7pt; color:#212121;&quot;&gt;Numero de Cuenta:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit_NomComp">
@@ -661,8 +661,8 @@ border-color: rgb(33, 33, 33);</string>
        <rect>
         <x>300</x>
         <y>340</y>
-        <width>161</width>
-        <height>16</height>
+        <width>211</width>
+        <height>21</height>
        </rect>
       </property>
       <property name="font">
@@ -673,7 +673,7 @@ border-color: rgb(33, 33, 33);</string>
        </font>
       </property>
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#212121;&quot;&gt;Repetir Reservacion: *&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:7pt; color:#212121;&quot;&gt;Repetir Reservacion:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="QComboBox" name="CBX_RepReserv">
@@ -701,7 +701,7 @@ border-color: rgb(33, 33, 33);</string>
        <rect>
         <x>10</x>
         <y>500</y>
-        <width>391</width>
+        <width>441</width>
         <height>16</height>
        </rect>
       </property>
@@ -713,7 +713,7 @@ border-color: rgb(33, 33, 33);</string>
        </font>
       </property>
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#212121;&quot;&gt;Correo Electronico Institucional(usuairo@unitec.edu): *&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt; color:#212121;&quot;&gt;Correo Electronico Institucional(usuairo@unitec.edu):&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit_Correo">
@@ -743,7 +743,7 @@ border-color: rgb(33, 33, 33);</string>
        </font>
       </property>
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#212121;&quot;&gt;Cantidad de Integrantes: *&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:7pt; color:#212121;&quot;&gt;Cantidad de Integrantes:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="QSpinBox" name="spinBox_CantIntegrantes">
@@ -782,8 +782,8 @@ border-color: rgb(33, 33, 33);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>725</width>
-     <height>22</height>
+     <width>759</width>
+     <height>30</height>
     </rect>
    </property>
   </widget>
