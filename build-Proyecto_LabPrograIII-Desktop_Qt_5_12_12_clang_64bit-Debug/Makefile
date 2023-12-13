@@ -775,7 +775,9 @@ main.o: ../Proyecto_LabPrograIII/main.cpp ../Proyecto_LabPrograIII/cframe.h \
 cframe.o: ../Proyecto_LabPrograIII/cframe.cpp ../Proyecto_LabPrograIII/cframe.h \
 		../../../Qt/programa/5.12.12/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../Qt/programa/5.12.12/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
-		ui_cframe.h
+		ui_cframe.h \
+		../../../Qt/programa/5.12.12/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		../../../Qt/programa/5.12.12/clang_64/lib/QtGui.framework/Headers/qpixmap.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cframe.o ../Proyecto_LabPrograIII/cframe.cpp
 
 moc_cframe.o: moc_cframe.cpp 

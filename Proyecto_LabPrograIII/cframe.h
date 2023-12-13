@@ -15,6 +15,11 @@ public:
     Cframe(QWidget *parent = nullptr);
     ~Cframe();
 
+private slots:
+    void on_pushButton_clicked();
+
+    void on_CBX_PerfSol_activated(const QString &arg1);
+
 private:
     Ui::Cframe *ui;
 };
