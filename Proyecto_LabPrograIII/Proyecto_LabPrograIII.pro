@@ -13,6 +13,9 @@ SOURCES += \
     cframe.cpp
 
 HEADERS += \
+    ListaReservas.h \
+    Reserva.h \
+    Solicitante.h \
     cframe.h
 
 FORMS += \
