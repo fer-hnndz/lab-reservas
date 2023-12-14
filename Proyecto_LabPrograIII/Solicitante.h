@@ -6,7 +6,6 @@
 
 using std::string;
 
-class Reserva;
 class Solicitante {
     public:
         string nombreCompleto;

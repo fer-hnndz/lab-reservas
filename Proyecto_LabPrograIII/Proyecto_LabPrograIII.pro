@@ -14,7 +14,9 @@ SOURCES += \
 
 HEADERS += \
     ListaReservas.h \
+    RepetirReserva.h \
     Reserva.h \
+    SolicianteRepetible.h \
     Solicitante.h \
     cframe.h
 
