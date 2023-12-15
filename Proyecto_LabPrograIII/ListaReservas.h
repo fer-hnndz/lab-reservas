@@ -16,6 +16,8 @@ private:
 public:
     ListaReservas() {
         // TODO: Cargar datos desde el archivo
+        head = nullptr;
+        cout << "Instantiated\n";
 
     }
     ~ListaReservas() {
@@ -24,7 +26,8 @@ public:
 
         // TODO: Guardar (?)
 
-        Reserva *resActual = head;
+
+        cout << "Destruyendo Lista...\n";     Reserva *resActual = head;
         Reserva *tempRes = nullptr;
 
         int nodosRecorridos = 0;
@@ -57,6 +60,7 @@ public:
 
         // Agregar la nueva reserva
         resActual->next = res;
+        cout << "Agregado!\n";
 
     }
 };

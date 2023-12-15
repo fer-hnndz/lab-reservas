@@ -10,6 +10,8 @@ Cframe::Cframe(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Cframe)
 {
+    ListaReservas list;
+    this->reservas = list;
     //para que tenga un tamaño fijo
     setFixedSize(700, 900);
     ui->setupUi(this);
@@ -57,6 +59,7 @@ void Cframe::on_CBX_PerfSol_activated(const QString &arg1){
 
 void Cframe::on_PB_Enviar_clicked()
 {
+    // TODO: Limpiar campos y mostrar alerta
     QString opcion = ui->CBX_PerfSol->currentText();
 
     if(opcion=="Docente"){
