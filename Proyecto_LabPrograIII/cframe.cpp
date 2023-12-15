@@ -170,6 +170,15 @@ void Cframe::on_PB_Enviar_clicked(){
                     );
 
         reservas.push_back(newRes);
+
+        ui->lineEdit_ClaseRequerida->clear();
+        ui->lineEdit_Correo->clear();
+        ui->lineEdit_NomComp->clear();
+        ui->lineEdit_NumCuenta->clear();
+        ui->TE_Nombres_Cuentas->clear();
+        ui->TE_Equipos->clear();
+        ui->lineEdit_MotivoUso->clear();
+
     }else if(opcion=="Educación Continua"){
         QDate fecha = ui->DE_Fecha->date();
         string lab = ui->CBX_LabSol->currentText().toStdString();
@@ -216,6 +225,13 @@ void Cframe::on_PB_Enviar_clicked(){
                     );
 
         reservas.push_back(newRes);
+        ui->lineEdit_ClaseRequerida->clear();
+        ui->lineEdit_Correo->clear();
+        ui->lineEdit_NomComp->clear();
+        ui->lineEdit_NumCuenta->clear();
+        ui->TE_Nombres_Cuentas->clear();
+        ui->TE_Equipos->clear();
+        ui->lineEdit_MotivoUso->clear();
     }else if(opcion=="Alumno"){
         QDate fecha = ui->DE_Fecha->date();
         string lab = ui->CBX_LabSol->currentText().toStdString();
@@ -250,7 +266,20 @@ void Cframe::on_PB_Enviar_clicked(){
                     );
 
         reservas.push_back(newRes);
+        ui->lineEdit_ClaseRequerida->clear();
+        ui->lineEdit_Correo->clear();
+        ui->lineEdit_NomComp->clear();
+        ui->lineEdit_NumCuenta->clear();
+        ui->TE_Nombres_Cuentas->clear();
+        ui->TE_Equipos->clear();
+        ui->lineEdit_MotivoUso->clear();
     }
-
+    ui->lineEdit_ClaseRequerida->clear();
+    ui->lineEdit_Correo->clear();
+    ui->lineEdit_NomComp->clear();
+    ui->lineEdit_NumCuenta->clear();
+    ui->TE_Nombres_Cuentas->clear();
+    ui->TE_Equipos->clear();
+    ui->lineEdit_MotivoUso->clear();
 }
 
