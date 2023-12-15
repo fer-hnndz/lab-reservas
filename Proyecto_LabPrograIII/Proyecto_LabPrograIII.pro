@@ -13,9 +13,11 @@ SOURCES += \
     cframe.cpp
 
 HEADERS += \
+    HorasReservadas.h \
     ListaReservas.h \
     RepetirReserva.h \
     Reserva.h \
+    ReservasDia.h \
     SolicianteRepetible.h \
     Solicitante.h \
     cframe.h

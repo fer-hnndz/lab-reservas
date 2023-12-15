@@ -6,8 +6,11 @@
 using std::string;
 
 class ListaReservas;
+class ReservaDia;
+
 class Reserva{
     friend ListaReservas;
+    friend ReservaDia;
 private:
     Reserva *next;
 

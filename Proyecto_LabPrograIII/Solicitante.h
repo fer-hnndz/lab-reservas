@@ -14,6 +14,8 @@ class Solicitante {
         uint8_t cantidadPersonas; // Usar un tipo de dato mas pequeno para optimizar memoria
         string nombreCuentas; // Nombres y numero de cuentas de los integrantes
         string equipos; // Equipos a utilizar durante la reserva
+
+        // TODO: Migrar a ReservasDia
         QDate fechaReservacion;
 
         // Estos guardaran la posicion de la hora seleccionada dentro del combobox de las horas de inicio/final.
