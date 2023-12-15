@@ -124,6 +124,8 @@ void Cframe::on_PB_Enviar_clicked(){
                     );
 
         reservas.push_back(newRes);
+        QMessageBox::information(nullptr, "Exito", "Reserva agendada correctamente.");
+
     }else if(opcion=="Administrativo"){
         QDate fecha = ui->DE_Fecha->date();
         string lab = ui->CBX_LabSol->currentText().toStdString();
@@ -170,6 +172,8 @@ void Cframe::on_PB_Enviar_clicked(){
                     );
 
         reservas.push_back(newRes);
+        QMessageBox::information(nullptr, "Exito", "Reserva agendada correctamente.");
+
 
         ui->lineEdit_ClaseRequerida->clear();
         ui->lineEdit_Correo->clear();
@@ -225,6 +229,8 @@ void Cframe::on_PB_Enviar_clicked(){
                     );
 
         reservas.push_back(newRes);
+        QMessageBox::information(nullptr, "Exito", "Reserva agendada correctamente.");
+
         ui->lineEdit_ClaseRequerida->clear();
         ui->lineEdit_Correo->clear();
         ui->lineEdit_NomComp->clear();
@@ -266,6 +272,7 @@ void Cframe::on_PB_Enviar_clicked(){
                     );
 
         reservas.push_back(newRes);
+        QMessageBox::information(nullptr, "Exito", "Reserva agendada correctamente.");
         ui->lineEdit_ClaseRequerida->clear();
         ui->lineEdit_Correo->clear();
         ui->lineEdit_NomComp->clear();
