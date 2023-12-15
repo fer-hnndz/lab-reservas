@@ -3,18 +3,18 @@
 
 #include <string>
 #include <cstring>
-
+#include <QDate>
 using std::string;
 
 class Solicitante {
     public:
         string nombreCompleto;
-        char cuenta[8]; // Limitar los numeros de cuenta a 8 caracteres.
+        string cuenta; // Limitar los numeros de cuenta a 8 caracteres.
         string correo;
         uint8_t cantidadPersonas; // Usar un tipo de dato mas pequeno para optimizar memoria
         string nombreCuentas; // Nombres y numero de cuentas de los integrantes
         string equipos; // Equipos a utilizar durante la reserva
-        string fechaReservacion;
+        QDate fechaReservacion;
 
         // Estos guardaran la posicion de la hora seleccionada dentro del combobox de las horas de inicio/final.
         // Permite poder chequear mas facilmente si se selecciono una hora valida.
@@ -24,18 +24,18 @@ class Solicitante {
 
         Solicitante(
                 string nombreCompleto,
-                char *cuenta[8],
+                string cuenta,
                 string correo,
-                uint8_t cantidadPersonas,
+                int cantidadPersonas,
                 string nombreCuentas,
                 string equipos,
-                string fechaReservacion,
-                uint8_t horaInicio,
-                uint8_t horaFinal
+                QDate fechaReservacion,
+                int horaInicio,
+                int horaFinal
         ) {
             this->nombreCompleto = nombreCompleto;
 
-            strcpy(this->cuenta, *cuenta);
+            this->cuenta = cuenta;
             this->correo = correo;
             this->cantidadPersonas = cantidadPersonas;
             this->nombreCuentas = nombreCuentas;

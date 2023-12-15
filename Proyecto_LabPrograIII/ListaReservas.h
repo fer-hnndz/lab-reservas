@@ -41,6 +41,13 @@ public:
     }
 
     void push_back(Reserva *res) {
+
+
+        if (head == nullptr) {
+            head = res;
+            return;
+        }
+
         Reserva *resActual = head;
 
         // Recorrer la lista hasta al final

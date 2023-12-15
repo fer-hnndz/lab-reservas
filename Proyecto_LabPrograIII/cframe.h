@@ -2,6 +2,9 @@
 #define CFRAME_H
 
 #include <QMainWindow>
+#include <ListaReservas.h>
+#include<Solicitante.h>
+#include<Reserva.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Cframe; }
@@ -20,7 +23,10 @@ private slots:
 
     void on_CBX_PerfSol_activated(const QString &arg1);
 
+    void on_PB_Enviar_clicked();
+
 private:
     Ui::Cframe *ui;
+    ListaReservas reservas;
 };
 #endif // CFRAME_H

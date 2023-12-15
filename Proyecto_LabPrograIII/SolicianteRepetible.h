@@ -1,6 +1,7 @@
 #ifndef SOLICIANTEREPETIBLE_H
 #define SOLICIANTEREPETIBLE_H
 
+#include <QDate>
 /*
  * Esta clase representa los solicitantes que pueden repetir una reservacion.
  * (Docente, Educacion Continua, Administrativo)
@@ -9,21 +10,21 @@
 
 #include "RepetirReserva.h"
 #include "Solicitante.h"
-class SolicitanteRepetible : Solicitante {
+class SolicitanteRepetible : public Solicitante {
     public:
         RepetirReserva repetir;
 
         // Constructor completo
         SolicitanteRepetible(
                 string nombreCompleto,
-                char *cuenta[8],
+                string cuenta,
                 string correo,
-                uint8_t cantidadPersonas,
+                int cantidadPersonas,
                 string nombreCuentas,
                 string equipos,
-                string fechaReservacion,
-                uint8_t horaInicio,
-                uint8_t horaFinal,
+                QDate fechaReservacion,
+                int horaInicio,
+                int horaFinal,
                 RepetirReserva repetir
         ) : Solicitante(
                 nombreCompleto,

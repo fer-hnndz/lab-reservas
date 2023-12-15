@@ -69,9 +69,9 @@ border-color: rgb(0, 0, 0);</string>
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>0</red>
-          <green>0</green>
-          <blue>0</blue>
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
          </color>
         </brush>
        </colorrole>
@@ -161,9 +161,9 @@ border-color: rgb(0, 0, 0);</string>
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>0</red>
-          <green>0</green>
-          <blue>0</blue>
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
          </color>
         </brush>
        </colorrole>
@@ -893,7 +893,7 @@ border-color: rgb(33, 33, 33);</string>
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:7pt; color:#212121;&quot;&gt;Equipo o Equipos que utilizaran: *&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
-     <widget class="QTextEdit" name="textEdit">
+     <widget class="QTextEdit" name="TE_Nombres_Cuentas">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -903,7 +903,7 @@ border-color: rgb(33, 33, 33);</string>
        </rect>
       </property>
      </widget>
-     <widget class="QTextEdit" name="textEdit_2">
+     <widget class="QTextEdit" name="TE_Equipos">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -1112,7 +1112,7 @@ border-color: rgb(33, 33, 33);</string>
      <x>0</x>
      <y>0</y>
      <width>759</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

@@ -14,7 +14,20 @@ private:
     string labSolicitado;
     string clase;
     string motivo;
-    Solicitante perfil;
+    Solicitante *perfil = nullptr;
+public:
+    Reserva(
+            string labSolicitado,
+            string clase,
+            string motivo,
+            Solicitante *perfil
+            ) {
+        this->next = nullptr;
+        this->labSolicitado = labSolicitado;
+        this->clase = clase;
+        this->motivo = motivo;
+        this->perfil = perfil;
+    }
 };
 
 #endif // RESERVA_H
