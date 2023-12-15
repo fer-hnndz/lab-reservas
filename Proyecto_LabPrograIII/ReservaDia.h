@@ -1,7 +1,7 @@
 #ifndef RESERVADIA_H
 #define RESERVADIA_H
 
-#define HORAS_CONST 10
+#define HORAS_CONST 11
 
 #include <QDate>
 #include <HorasReservadas.h>

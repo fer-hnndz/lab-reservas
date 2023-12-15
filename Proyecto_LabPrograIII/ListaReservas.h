@@ -30,6 +30,7 @@ public:
             return;
         }
 
+         string horas[11] = {"6:40", "8:10", "9:55", "11:15", "12:35", "13:20", "14:40", "16:00", "17:20", "18:40", "20:00"};
 
         // Skip the header line
            std::string headerLine;
@@ -63,7 +64,6 @@ public:
                          << nombresCuentas << ", " << equipos << ", " << fechaInicioStr << ", "
                          << fechaFinalStr << std::endl;
            }
-
         file.close();
 
     }
@@ -83,7 +83,7 @@ public:
         file << "Lab Solicitado\tClase para la que requiere laboratorio\tMotivo de Reserva\tPerfil de Solicitante\tRepetir Reservacion\tNombre Completo\tNumero de Cuenta\tCorreo\tCantidad de Integrantes\tNombres y Numeros de Cuenta de Integrantes\tEquipo a utilzarse\tFecha de Reserva\tHora Inicio\tHora Final\n";
 
 
-        string horas[10] = {"6:40", "8:10", "9:55", "11:15", "13:20", "14:40", "16:00", "17:20", "18:40", "20:00"};
+        string horas[11] = {"6:40", "8:10", "9:55", "11:15", "12:35", "13:20", "14:40", "16:00", "17:20", "18:40", "20:00"};
         while (resActual != nullptr) {
             // Guardar en archivo
 

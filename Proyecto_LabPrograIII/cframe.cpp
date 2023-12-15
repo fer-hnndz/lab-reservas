@@ -6,6 +6,7 @@
 #include <SolicianteRepetible.h>
 #include <Solicitante.h>
 #include <string>
+#define CONSTANTE_HORA_FINAL 2
 
 using namespace std;
 
@@ -59,6 +60,8 @@ Cframe::~Cframe(){
  */
 
 bool Cframe::puedeReservar(int horaInicio, int horaFinal, QDate fecha, string lab) {
+
+    cout << "[puedeReservar] Comprobando si se puede reservar...\n";
     ReservaDia *res = nullptr;
 
     // Revisar si existe alguna reservacion para ese dia
@@ -112,6 +115,7 @@ bool Cframe::puedeReservar(int horaInicio, int horaFinal, QDate fecha, string la
 void Cframe::agregarReservaDia(QDate fecha, string lab, int horaInicio, int horaFinal) {
     // Recorrer el array en busca de las reservas (si existen) para ese dia
 
+    cout << "[agregarReservaDia] agregando reserva...\n";
     ReservaDia *res = nullptr;
 
     // Revisar si existe alguna reservacion para ese dia
@@ -193,7 +197,8 @@ void Cframe::on_PB_Enviar_clicked(){
     }
 
         int indexInicio = ui->CBX_HInicio->currentIndex();
-        int indexFinal = ui->CBX_HFinal->currentIndex() + 2;
+        int indexFinal = ui->CBX_HFinal->currentIndex() + CONSTANTE_HORA_FINAL;
+        cout << "[push] Inicio:" << indexInicio << " | Final:" << indexFinal << "\n";
 
             /*
             // Asegurar que el índice de la hora final no supere el último índice disponible
@@ -218,7 +223,7 @@ void Cframe::on_PB_Enviar_clicked(){
         QDate fecha = ui->DE_Fecha->date();
         string lab = ui->CBX_LabSol->currentText().toStdString();
         int indexInicio = ui->CBX_HInicio->currentIndex();
-        int indexFinal = ui->CBX_HFinal->currentIndex() + 2;
+        int indexFinal = ui->CBX_HFinal->currentIndex() + CONSTANTE_HORA_FINAL;
 
         if ( !puedeReservar(indexInicio, indexFinal, fecha, lab) ) {
              QMessageBox messageBox;
@@ -276,7 +281,7 @@ void Cframe::on_PB_Enviar_clicked(){
         QDate fecha = ui->DE_Fecha->date();
         string lab = ui->CBX_LabSol->currentText().toStdString();
         int indexInicio = ui->CBX_HInicio->currentIndex();
-        int indexFinal = ui->CBX_HFinal->currentIndex()+2;
+        int indexFinal = ui->CBX_HFinal->currentIndex()+CONSTANTE_HORA_FINAL;
 
         if ( !puedeReservar(indexInicio, indexFinal, fecha, lab) ) {
              QMessageBox messageBox;
@@ -337,7 +342,7 @@ void Cframe::on_PB_Enviar_clicked(){
         QDate fecha = ui->DE_Fecha->date();
         string lab = ui->CBX_LabSol->currentText().toStdString();
         int indexInicio = ui->CBX_HInicio->currentIndex();
-        int indexFinal = ui->CBX_HFinal->currentIndex()+2;
+        int indexFinal = ui->CBX_HFinal->currentIndex()+CONSTANTE_HORA_FINAL;
 
         if ( !puedeReservar(indexInicio, indexFinal, fecha, lab) ) {
              QMessageBox messageBox;
@@ -405,7 +410,7 @@ void Cframe::on_PB_Enviar_clicked(){
         QDate fecha = ui->DE_Fecha->date();
         string lab = ui->CBX_LabSol->currentText().toStdString();
         int indexInicio = ui->CBX_HInicio->currentIndex();
-        int indexFinal = ui->CBX_HFinal->currentIndex()+ 2;
+        int indexFinal = ui->CBX_HFinal->currentIndex()+ CONSTANTE_HORA_FINAL;
 
         if ( !puedeReservar(indexInicio, indexFinal, fecha, lab) ) {
              QMessageBox messageBox;

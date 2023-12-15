@@ -1019,6 +1019,11 @@ border-color: rgb(33, 33, 33);</string>
       </item>
       <item>
        <property name="text">
+        <string>12:35</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
         <string>13:20</string>
        </property>
       </item>
@@ -1117,7 +1122,7 @@ border-color: rgb(33, 33, 33);</string>
      <x>0</x>
      <y>0</y>
      <width>759</width>
-     <height>25</height>
+     <height>30</height>
     </rect>
    </property>
   </widget>
