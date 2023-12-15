@@ -13,6 +13,12 @@ Cframe::Cframe(QWidget *parent)
 {
     ListaReservas list;
     this->reservas = list;
+
+    // TODO: Cargar data el excel y llenar list
+    // Llenar reservas dia con info en base a list
+
+
+    // UI
     //para que tenga un tamaño fijo
     setFixedSize(700, 900);
     ui->setupUi(this);

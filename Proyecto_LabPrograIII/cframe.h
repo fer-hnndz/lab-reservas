@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <ListaReservas.h>
 #include<Solicitante.h>
+#include <vector>
+#include <ReservaDia.h>
 #include<Reserva.h>
 
 QT_BEGIN_NAMESPACE
@@ -28,5 +30,7 @@ private slots:
 private:
     Ui::Cframe *ui;
     ListaReservas reservas;
+    std::vector<ReservaDia> reservasDia;
+
 };
 #endif // CFRAME_H

@@ -1,5 +1,5 @@
-#ifndef RESERVASDIA_H
-#define RESERVASDIA_H
+#ifndef RESERVADIA_H
+#define RESERVADIA_H
 
 #define HORAS_CONST 10
 
@@ -64,4 +64,4 @@ public:
 
 };
 
-#endif // RESERVASDIA_H
+#endif // RESERVADIA_H

@@ -17,7 +17,7 @@ HEADERS += \
     ListaReservas.h \
     RepetirReserva.h \
     Reserva.h \
-    ReservasDia.h \
+    ReservaDia.h \
     SolicianteRepetible.h \
     Solicitante.h \
     cframe.h
