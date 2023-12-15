@@ -39,6 +39,8 @@ Cframe::Cframe(QWidget *parent)
    ui->CBX_HInicio->setStyleSheet(style5);
    QString style6 = "QComboBox#CBX_HFinal { color: black; }";
    ui->CBX_HFinal->setStyleSheet(style6);
+   ui->DE_Fecha->setMinimumDate(QDate::currentDate());
+   ui->DE_Fecha->setMaximumDate(QDate::currentDate().addYears(2));
 
 }
 
