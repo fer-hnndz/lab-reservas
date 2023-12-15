@@ -3,7 +3,9 @@
 
 #include "Reserva.h"
 #include <iostream>
+#include <fstream>
 
+using std::ofstream;
 using std::cout;
 /*
  * Esta clase es una lista anidada que guarda todas las reservas cargadas del archivo
@@ -26,14 +28,20 @@ public:
 
         // TODO: Guardar (?)
 
+        ofstream file("reservas.xls", ofstream::out); // No ponerle app ya que vamos a volver a escribir toda la lista, por lo cual nada se va a duplicar
+        cout << "Destruyendo Lista...\n";
 
-        cout << "Destruyendo Lista...\n";     Reserva *resActual = head;
+        Reserva *resActual = head;
         Reserva *tempRes = nullptr;
 
         int nodosRecorridos = 0;
         cout << "[~ListasReservas()] Intentando eliminar todos los nodos de la lista...\n";
 
+        file << "Nombre Estudiante,Fecha\n";
         while (resActual != nullptr) {
+            // Guardar en archivo
+            file << resActual->perfil->nombreCompleto << "," << resActual->perfil->fechaReservacion.toString().toStdString() << "\n";
+
             tempRes = resActual;
             resActual = resActual->next;
             delete tempRes;
