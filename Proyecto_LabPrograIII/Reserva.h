@@ -18,18 +18,28 @@ private:
     string clase;
     string motivo;
     Solicitante *perfil = nullptr;
+
+    // Strings para excel
+    string repetirText = "No Aplica";
+    string perfilText;
 public:
     Reserva(
             string labSolicitado,
             string clase,
             string motivo,
-            Solicitante *perfil
+            Solicitante *perfil,
+            string perfilText
             ) {
         this->next = nullptr;
         this->labSolicitado = labSolicitado;
         this->clase = clase;
         this->motivo = motivo;
         this->perfil = perfil;
+        this->perfilText = perfilText;
+    }
+
+    void setRepetirText(string r) {
+        this->repetirText = r;
     }
 };
 

@@ -5,6 +5,8 @@
 #include <iostream>
 #include <SolicianteRepetible.h>
 #include <Solicitante.h>
+#include <string>
+
 using namespace std;
 
 Cframe::Cframe(QWidget *parent)
@@ -39,7 +41,8 @@ Cframe::Cframe(QWidget *parent)
    ui->CBX_HInicio->setStyleSheet(style5);
    QString style6 = "QComboBox#CBX_HFinal { color: black; }";
    ui->CBX_HFinal->setStyleSheet(style6);
-   ui->DE_Fecha->setMinimumDate(QDate::currentDate());
+
+   ui->DE_Fecha->setMinimumDate(QDate::currentDate().addDays(2));
    ui->DE_Fecha->setMaximumDate(QDate::currentDate().addYears(2));
 
 }
@@ -239,8 +242,10 @@ void Cframe::on_PB_Enviar_clicked(){
         Reserva *newRes = new Reserva(
                     lab,ui->lineEdit_ClaseRequerida->text().toStdString(),
                     ui->lineEdit_MotivoUso->text().toStdString(),
-                    dynamic_cast<Solicitante *>(sol)
+                    dynamic_cast<Solicitante *>(sol),
+                    "Docente"
                     );
+        newRes->setRepetirText(repetirOpcion);
 
         reservas.push_back(newRes);
         agregarReservaDia(fecha, lab, indexInicio, indexFinal);
@@ -288,9 +293,11 @@ void Cframe::on_PB_Enviar_clicked(){
         Reserva *newRes = new Reserva(
                     lab,ui->lineEdit_ClaseRequerida->text().toStdString(),
                     ui->lineEdit_MotivoUso->text().toStdString(),
-                    dynamic_cast<Solicitante *>(sol)
+                    dynamic_cast<Solicitante *>(sol),
+                    "Administrativo"
                     );
 
+        newRes->setRepetirText(repetirOpcion);
         reservas.push_back(newRes);
         QMessageBox::information(nullptr, "Exito", "Reserva agendada correctamente.");
 
@@ -345,8 +352,11 @@ void Cframe::on_PB_Enviar_clicked(){
         Reserva *newRes = new Reserva(
                     lab,ui->lineEdit_ClaseRequerida->text().toStdString(),
                     ui->lineEdit_MotivoUso->text().toStdString(),
-                    dynamic_cast<Solicitante *>(sol)
+                    dynamic_cast<Solicitante *>(sol),
+                    "Educacion Continua"
                     );
+
+        newRes->setRepetirText(repetirOpcion);
 
         reservas.push_back(newRes);
         QMessageBox::information(nullptr, "Exito", "Reserva agendada correctamente.");
@@ -388,7 +398,8 @@ void Cframe::on_PB_Enviar_clicked(){
         Reserva *newRes = new Reserva(
                     lab,ui->lineEdit_ClaseRequerida->text().toStdString(),
                     ui->lineEdit_MotivoUso->text().toStdString(),
-                    dynamic_cast<Solicitante *>(sol)
+                    dynamic_cast<Solicitante *>(sol),
+                    "Alumno"
                     );
 
         reservas.push_back(newRes);

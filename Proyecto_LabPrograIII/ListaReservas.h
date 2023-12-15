@@ -24,11 +24,6 @@ public:
 
     }
     ~ListaReservas() {
-        // Puede ser que se guarde cada vez que se agregue una reserva que puede que no sea necesario
-        // guardar cuando la lista es destruida.
-
-        // TODO: Guardar (?)
-
         ofstream file("reservas.xls", ofstream::out); // No ponerle app ya que vamos a volver a escribir toda la lista, por lo cual nada se va a duplicar
         cout << "Destruyendo Lista...\n";
 
@@ -40,12 +35,15 @@ public:
 
        // Formato de Excel
         file << "Lab Solicitado\tClase para la que requiere laboratorio\tMotivo de Reserva\tPerfil de Solicitante\tRepetir Reservacion\tNombre Completo\tNumero de Cuenta\tCorreo\tCantidad de Integrantes\tNombres y Numeros de Cuenta de Integrantes\tEquipo a utilzarse\tFecha de Reserva\tHora Inicio\tHora Final\n";
+
+
+        string horas[10] = {"6:40", "8:10", "9:55", "11:15", "13:20", "14:40", "16:00", "17:20", "18:40", "20:00"};
         while (resActual != nullptr) {
             // Guardar en archivo
 
             // TODO: GUARDAR EL NOMBRE DEL PERFIL EN DONDE ESTA LA DOBLE COMA
             Solicitante *sol = resActual->perfil;
-            file << resActual->labSolicitado << "\t" << resActual->clase << "\t" << resActual->motivo << "\tPERFIL\tREPETIR\t" << sol->nombreCompleto << "\t" << sol->cuenta << "\t" << sol->correo << "\t" << sol->cantidadPersonas << "\t" << sol->nombreCuentas << "\t" << sol->equipos << "\t" << sol->fechaReservacion.toString().toStdString() << "\t" << sol->horaInicio << "\t" << sol->horaFinal<< "\n";
+            file << resActual->labSolicitado << "\t" << resActual->clase << "\t" << resActual->motivo << "\t" << resActual->perfilText << "\t" << resActual->repetirText << "\t" <<sol->nombreCompleto << "\t" << sol->cuenta << "\t" << sol->correo << "\t" << std::to_string(sol->cantidadPersonas) << "\t" << replaceNewLines(sol->nombreCuentas) << "\t" << replaceNewLines(sol->equipos) << "\t" << sol->fechaReservacion.toString().toStdString() << "\t" << horas[sol->horaInicio] << "\t" << horas[sol->horaFinal] << "\n";
 
             tempRes = resActual;
             resActual = resActual->next;
@@ -75,6 +73,16 @@ public:
         resActual->next = res;
         cout << "Agregado!\n";
 
+    }
+
+    string replaceNewLines(string old) {
+        size_t pos = 0;
+        while ((pos = old.find("\n", pos)) != std::string::npos) {
+            old.replace(pos, 1, " | ");
+            pos += 3;
+        }
+
+        return old;
     }
 };
 
