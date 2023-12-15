@@ -222,6 +222,7 @@ DIST          = ../../../Qt/programa/5.12.12/clang_64/mkspecs/features/spec_pre.
 		../../../Qt/programa/5.12.12/clang_64/mkspecs/features/qt_config.prf \
 		../../../Qt/programa/5.12.12/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../Qt/programa/5.12.12/clang_64/mkspecs/features/spec_post.prf \
+		../Proyecto_LabPrograIII/.qmake.stash \
 		../../../Qt/programa/5.12.12/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/programa/5.12.12/clang_64/mkspecs/features/mac/sdk.prf \
 		../../../Qt/programa/5.12.12/clang_64/mkspecs/features/toolchain.prf \
@@ -249,7 +250,12 @@ DIST          = ../../../Qt/programa/5.12.12/clang_64/mkspecs/features/spec_pre.
 		../../../Qt/programa/5.12.12/clang_64/mkspecs/features/exceptions.prf \
 		../../../Qt/programa/5.12.12/clang_64/mkspecs/features/yacc.prf \
 		../../../Qt/programa/5.12.12/clang_64/mkspecs/features/lex.prf \
-		../Proyecto_LabPrograIII/Proyecto_LabPrograIII.pro ../Proyecto_LabPrograIII/cframe.h ../Proyecto_LabPrograIII/main.cpp \
+		../Proyecto_LabPrograIII/Proyecto_LabPrograIII.pro ../Proyecto_LabPrograIII/ListaReservas.h \
+		../Proyecto_LabPrograIII/RepetirReserva.h \
+		../Proyecto_LabPrograIII/Reserva.h \
+		../Proyecto_LabPrograIII/SolicianteRepetible.h \
+		../Proyecto_LabPrograIII/Solicitante.h \
+		../Proyecto_LabPrograIII/cframe.h ../Proyecto_LabPrograIII/main.cpp \
 		../Proyecto_LabPrograIII/cframe.cpp
 QMAKE_TARGET  = Proyecto_LabPrograIII
 DESTDIR       = 
@@ -438,6 +444,7 @@ Makefile: ../Proyecto_LabPrograIII/Proyecto_LabPrograIII.pro ../../../Qt/program
 		../../../Qt/programa/5.12.12/clang_64/mkspecs/features/qt_config.prf \
 		../../../Qt/programa/5.12.12/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../Qt/programa/5.12.12/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../Qt/programa/5.12.12/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/programa/5.12.12/clang_64/mkspecs/features/mac/sdk.prf \
 		../../../Qt/programa/5.12.12/clang_64/mkspecs/features/toolchain.prf \
@@ -635,6 +642,7 @@ Makefile: ../Proyecto_LabPrograIII/Proyecto_LabPrograIII.pro ../../../Qt/program
 ../../../Qt/programa/5.12.12/clang_64/mkspecs/features/qt_config.prf:
 ../../../Qt/programa/5.12.12/clang_64/mkspecs/macx-clang/qmake.conf:
 ../../../Qt/programa/5.12.12/clang_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../Qt/programa/5.12.12/clang_64/mkspecs/features/exclusive_builds.prf:
 ../../../Qt/programa/5.12.12/clang_64/mkspecs/features/mac/sdk.prf:
 ../../../Qt/programa/5.12.12/clang_64/mkspecs/features/toolchain.prf:
@@ -696,7 +704,7 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../Qt/programa/5.12.12/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Proyecto_LabPrograIII/cframe.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Proyecto_LabPrograIII/ListaReservas.h ../Proyecto_LabPrograIII/RepetirReserva.h ../Proyecto_LabPrograIII/Reserva.h ../Proyecto_LabPrograIII/SolicianteRepetible.h ../Proyecto_LabPrograIII/Solicitante.h ../Proyecto_LabPrograIII/cframe.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../Proyecto_LabPrograIII/main.cpp ../Proyecto_LabPrograIII/cframe.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../Proyecto_LabPrograIII/cframe.ui $(DISTDIR)/
 
@@ -708,6 +716,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) -r Proyecto_LabPrograIII.app
+	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -738,6 +747,11 @@ compiler_moc_header_clean:
 moc_cframe.cpp: ../Proyecto_LabPrograIII/cframe.h \
 		../../../Qt/programa/5.12.12/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../Qt/programa/5.12.12/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../Proyecto_LabPrograIII/ListaReservas.h \
+		../Proyecto_LabPrograIII/Reserva.h \
+		../Proyecto_LabPrograIII/Solicitante.h \
+		../../../Qt/programa/5.12.12/clang_64/lib/QtCore.framework/Headers/QDate \
+		../../../Qt/programa/5.12.12/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
 		moc_predefs.h \
 		../../../Qt/programa/5.12.12/clang_64/bin/moc
 	/Users/ruthreyes/Qt/programa/5.12.12/clang_64/bin/moc $(DEFINES) --include /Users/ruthreyes/PrograIII/lab-reservas/build-Proyecto_LabPrograIII-Desktop_Qt_5_12_12_clang_64bit-Debug/moc_predefs.h -I/Users/ruthreyes/Qt/programa/5.12.12/clang_64/mkspecs/macx-clang -I/Users/ruthreyes/PrograIII/lab-reservas/Proyecto_LabPrograIII -I/Users/ruthreyes/Qt/programa/5.12.12/clang_64/lib/QtWidgets.framework/Headers -I/Users/ruthreyes/Qt/programa/5.12.12/clang_64/lib/QtGui.framework/Headers -I/Users/ruthreyes/Qt/programa/5.12.12/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include -F/Users/ruthreyes/Qt/programa/5.12.12/clang_64/lib ../Proyecto_LabPrograIII/cframe.h -o moc_cframe.cpp
@@ -768,16 +782,30 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 main.o: ../Proyecto_LabPrograIII/main.cpp ../Proyecto_LabPrograIII/cframe.h \
 		../../../Qt/programa/5.12.12/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../Qt/programa/5.12.12/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../Proyecto_LabPrograIII/ListaReservas.h \
+		../Proyecto_LabPrograIII/Reserva.h \
+		../Proyecto_LabPrograIII/Solicitante.h \
+		../../../Qt/programa/5.12.12/clang_64/lib/QtCore.framework/Headers/QDate \
+		../../../Qt/programa/5.12.12/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
 		../../../Qt/programa/5.12.12/clang_64/lib/QtWidgets.framework/Headers/QApplication \
-		../../../Qt/programa/5.12.12/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
+		../../../Qt/programa/5.12.12/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
+		../../../Qt/programa/5.12.12/clang_64/lib/QtWidgets.framework/Headers/QStyleFactory \
+		../../../Qt/programa/5.12.12/clang_64/lib/QtWidgets.framework/Headers/qstylefactory.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Proyecto_LabPrograIII/main.cpp
 
 cframe.o: ../Proyecto_LabPrograIII/cframe.cpp ../Proyecto_LabPrograIII/cframe.h \
 		../../../Qt/programa/5.12.12/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../Qt/programa/5.12.12/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../Proyecto_LabPrograIII/ListaReservas.h \
+		../Proyecto_LabPrograIII/Reserva.h \
+		../Proyecto_LabPrograIII/Solicitante.h \
+		../../../Qt/programa/5.12.12/clang_64/lib/QtCore.framework/Headers/QDate \
+		../../../Qt/programa/5.12.12/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
 		ui_cframe.h \
 		../../../Qt/programa/5.12.12/clang_64/lib/QtGui.framework/Headers/QPixmap \
-		../../../Qt/programa/5.12.12/clang_64/lib/QtGui.framework/Headers/qpixmap.h
+		../../../Qt/programa/5.12.12/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		../Proyecto_LabPrograIII/SolicianteRepetible.h \
+		../Proyecto_LabPrograIII/RepetirReserva.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cframe.o ../Proyecto_LabPrograIII/cframe.cpp
 
 moc_cframe.o: moc_cframe.cpp 

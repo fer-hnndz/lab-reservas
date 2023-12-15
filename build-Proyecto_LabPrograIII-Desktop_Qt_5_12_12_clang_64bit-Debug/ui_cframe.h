@@ -54,8 +54,8 @@ public:
     QPushButton *PB_Enviar;
     QLabel *label_9;
     QLabel *label_12;
-    QTextEdit *textEdit;
-    QTextEdit *textEdit_2;
+    QTextEdit *TE_Nombres_Cuentas;
+    QTextEdit *TE_Equipos;
     QLabel *label_13;
     QDateEdit *DE_Fecha;
     QLabel *label_14;
@@ -87,55 +87,53 @@ public:
         palette.setBrush(QPalette::Active, QPalette::Button, brush1);
         palette.setBrush(QPalette::Active, QPalette::Text, brush);
         palette.setBrush(QPalette::Active, QPalette::BrightText, brush);
-        QBrush brush2(QColor(0, 0, 0, 255));
-        brush2.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Active, QPalette::Base, brush2);
+        palette.setBrush(QPalette::Active, QPalette::Base, brush1);
         palette.setBrush(QPalette::Active, QPalette::Window, brush1);
-        QBrush brush3(QColor(218, 0, 0, 255));
+        QBrush brush2(QColor(218, 0, 0, 255));
+        brush2.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Highlight, brush2);
+        QBrush brush3(QColor(26, 87, 255, 255));
         brush3.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Active, QPalette::Highlight, brush3);
-        QBrush brush4(QColor(26, 87, 255, 255));
+        palette.setBrush(QPalette::Active, QPalette::Link, brush3);
+        QBrush brush4(QColor(255, 245, 229, 255));
         brush4.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Active, QPalette::Link, brush4);
-        QBrush brush5(QColor(255, 245, 229, 255));
+        palette.setBrush(QPalette::Active, QPalette::LinkVisited, brush4);
+        QBrush brush5(QColor(33, 33, 33, 128));
         brush5.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Active, QPalette::LinkVisited, brush5);
-        QBrush brush6(QColor(33, 33, 33, 128));
-        brush6.setStyle(Qt::SolidPattern);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette.setBrush(QPalette::Active, QPalette::PlaceholderText, brush6);
+        palette.setBrush(QPalette::Active, QPalette::PlaceholderText, brush5);
 #endif
         palette.setBrush(QPalette::Inactive, QPalette::WindowText, brush);
         palette.setBrush(QPalette::Inactive, QPalette::Button, brush1);
         palette.setBrush(QPalette::Inactive, QPalette::Text, brush);
         palette.setBrush(QPalette::Inactive, QPalette::BrightText, brush);
-        palette.setBrush(QPalette::Inactive, QPalette::Base, brush2);
+        palette.setBrush(QPalette::Inactive, QPalette::Base, brush1);
         palette.setBrush(QPalette::Inactive, QPalette::Window, brush1);
-        palette.setBrush(QPalette::Inactive, QPalette::Highlight, brush3);
-        palette.setBrush(QPalette::Inactive, QPalette::Link, brush4);
-        palette.setBrush(QPalette::Inactive, QPalette::LinkVisited, brush5);
+        palette.setBrush(QPalette::Inactive, QPalette::Highlight, brush2);
+        palette.setBrush(QPalette::Inactive, QPalette::Link, brush3);
+        palette.setBrush(QPalette::Inactive, QPalette::LinkVisited, brush4);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush6);
+        palette.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush5);
 #endif
-        QBrush brush7(QColor(255, 255, 255, 63));
-        brush7.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Disabled, QPalette::WindowText, brush7);
+        QBrush brush6(QColor(255, 255, 255, 63));
+        brush6.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Disabled, QPalette::WindowText, brush6);
         palette.setBrush(QPalette::Disabled, QPalette::Button, brush1);
-        QBrush brush8(QColor(0, 0, 0, 63));
-        brush8.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Disabled, QPalette::Text, brush8);
+        QBrush brush7(QColor(0, 0, 0, 63));
+        brush7.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Disabled, QPalette::Text, brush7);
         palette.setBrush(QPalette::Disabled, QPalette::BrightText, brush);
         palette.setBrush(QPalette::Disabled, QPalette::Base, brush1);
         palette.setBrush(QPalette::Disabled, QPalette::Window, brush1);
-        QBrush brush9(QColor(70, 70, 70, 255));
+        QBrush brush8(QColor(70, 70, 70, 255));
+        brush8.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Disabled, QPalette::Highlight, brush8);
+        palette.setBrush(QPalette::Disabled, QPalette::Link, brush3);
+        palette.setBrush(QPalette::Disabled, QPalette::LinkVisited, brush4);
+        QBrush brush9(QColor(0, 0, 0, 128));
         brush9.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Disabled, QPalette::Highlight, brush9);
-        palette.setBrush(QPalette::Disabled, QPalette::Link, brush4);
-        palette.setBrush(QPalette::Disabled, QPalette::LinkVisited, brush5);
-        QBrush brush10(QColor(0, 0, 0, 128));
-        brush10.setStyle(Qt::SolidPattern);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush10);
+        palette.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush9);
 #endif
         tabWidget->setPalette(palette);
         tabWidget->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
@@ -239,6 +237,7 @@ public:
         CBX_RepReserv = new QComboBox(tab);
         CBX_RepReserv->addItem(QString());
         CBX_RepReserv->addItem(QString());
+        CBX_RepReserv->addItem(QString());
         CBX_RepReserv->setObjectName(QString::fromUtf8("CBX_RepReserv"));
         CBX_RepReserv->setGeometry(QRect(280, 300, 241, 21));
         label_10 = new QLabel(tab);
@@ -266,12 +265,12 @@ public:
         label_12->setObjectName(QString::fromUtf8("label_12"));
         label_12->setGeometry(QRect(10, 610, 161, 16));
         label_12->setFont(font2);
-        textEdit = new QTextEdit(tab);
-        textEdit->setObjectName(QString::fromUtf8("textEdit"));
-        textEdit->setGeometry(QRect(10, 560, 231, 41));
-        textEdit_2 = new QTextEdit(tab);
-        textEdit_2->setObjectName(QString::fromUtf8("textEdit_2"));
-        textEdit_2->setGeometry(QRect(10, 630, 231, 41));
+        TE_Nombres_Cuentas = new QTextEdit(tab);
+        TE_Nombres_Cuentas->setObjectName(QString::fromUtf8("TE_Nombres_Cuentas"));
+        TE_Nombres_Cuentas->setGeometry(QRect(10, 560, 231, 41));
+        TE_Equipos = new QTextEdit(tab);
+        TE_Equipos->setObjectName(QString::fromUtf8("TE_Equipos"));
+        TE_Equipos->setGeometry(QRect(10, 630, 231, 41));
         label_13 = new QLabel(tab);
         label_13->setObjectName(QString::fromUtf8("label_13"));
         label_13->setGeometry(QRect(10, 680, 121, 16));
@@ -368,8 +367,9 @@ public:
         label_8->setText(QApplication::translate("Cframe", "<html><head/><body><p><span style=\" font-size:7pt; color:#212121;\">Numero de Cuenta: *</span></p></body></html>", nullptr));
         lineEdit_NomComp->setText(QString());
         label_RepRerserv->setText(QApplication::translate("Cframe", "<html><head/><body><p><span style=\" font-size:7pt; color:#212121;\">Repetir Reservacion: *</span></p></body></html>", nullptr));
-        CBX_RepReserv->setItemText(0, QApplication::translate("Cframe", "Weekly", nullptr));
-        CBX_RepReserv->setItemText(1, QApplication::translate("Cframe", "Daily", nullptr));
+        CBX_RepReserv->setItemText(0, QApplication::translate("Cframe", "no repeat", nullptr));
+        CBX_RepReserv->setItemText(1, QApplication::translate("Cframe", "Weekly", nullptr));
+        CBX_RepReserv->setItemText(2, QApplication::translate("Cframe", "Daily", nullptr));
 
         label_10->setText(QApplication::translate("Cframe", "<html><head/><body><p><span style=\" font-size:8pt; color:#212121;\">Correo Electronico Institucional(usuario@unitec.edu): *</span></p></body></html>", nullptr));
         label_11->setText(QApplication::translate("Cframe", "<html><head/><body><p><span style=\" font-size:7pt; color:#212121;\">Cantidad de Integrantes: *</span></p></body></html>", nullptr));

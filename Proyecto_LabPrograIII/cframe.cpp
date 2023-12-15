@@ -1,6 +1,7 @@
 #include "cframe.h"
 #include "ui_cframe.h"
 #include <QPixmap>
+#include <QMessageBox>
 #include <iostream>
 #include <SolicianteRepetible.h>
 #include <Solicitante.h>
@@ -57,8 +58,23 @@ void Cframe::on_CBX_PerfSol_activated(const QString &arg1){
 }
 
 
-void Cframe::on_PB_Enviar_clicked()
-{
+void Cframe::on_PB_Enviar_clicked(){
+    QString texto_ClaseRequerida = ui->lineEdit_ClaseRequerida->text();
+    QString texto_Correo = ui->lineEdit_Correo->text();
+    QString texto_MotivoUso= ui->lineEdit_MotivoUso->text();
+    QString texto_NomComp= ui->lineEdit_NomComp->text();
+    QString texto_NumCuenta= ui->lineEdit_NumCuenta->text();
+    QString texto_Nombres_Cuentas = ui->TE_Nombres_Cuentas->toPlainText();
+    QString texto_TE_Equipos = ui->TE_Equipos->toPlainText();
+
+    if(texto_ClaseRequerida.isEmpty()||texto_Correo.isEmpty()||texto_MotivoUso.isEmpty()||texto_NomComp.isEmpty()||texto_NumCuenta.isEmpty()||texto_Nombres_Cuentas.trimmed().isEmpty()||texto_TE_Equipos.trimmed().isEmpty()){
+          QMessageBox messageBox;
+           messageBox.setIcon(QMessageBox::Critical);
+           messageBox.setWindowTitle("Error");
+           messageBox.setText("¡Porfavor completar todos los espacios solicitados antes de enviar el formulario!");
+           messageBox.exec();
+           return;
+    }
     // TODO: Limpiar campos y mostrar alerta
     QString opcion = ui->CBX_PerfSol->currentText();
 

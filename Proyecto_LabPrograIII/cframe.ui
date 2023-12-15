@@ -771,6 +771,11 @@ border-color: rgb(33, 33, 33);</string>
       </property>
       <item>
        <property name="text">
+        <string>no repeat</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
         <string>Weekly</string>
        </property>
       </item>
@@ -1112,7 +1117,7 @@ border-color: rgb(33, 33, 33);</string>
      <x>0</x>
      <y>0</y>
      <width>759</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
