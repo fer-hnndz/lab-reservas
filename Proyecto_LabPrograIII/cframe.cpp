@@ -105,6 +105,133 @@ void Cframe::on_PB_Enviar_clicked()
                     );
 
         reservas.push_back(newRes);
+    }else if(opcion=="Administrativo"){
+        QDate fecha = ui->DE_Fecha->date();
+        string lab = ui->CBX_LabSol->currentText().toStdString();
+        int indexInicio = ui->CBX_HInicio->currentIndex();
+        int indexFinal = ui->CBX_HFinal->currentIndex();
+
+           // TODO: REVISAR QUE ESTE DENTRO DE LAS HORAS POSIBLES
+        int cantP = ui->spinBox_CantIntegrantes->value();
+
+
+        string repetirOpcion = ui->CBX_RepReserv->currentText().toStdString();
+        RepetirReserva rep;
+        if (repetirOpcion == "Weekly")
+            rep = RepetirReserva(Weekly);
+        else if (repetirOpcion == "Daily")
+            rep = RepetirReserva(Daily);
+        else
+            rep = RepetirReserva(NoRepeat);
+
+        string nombreCompleto = ui->lineEdit_NomComp->text().toStdString();
+        string numCuenta =  ui->lineEdit_NumCuenta->text().toStdString();
+        string correo = ui->lineEdit_Correo->text().toStdString();
+        string nombresCuentas = ui->TE_Nombres_Cuentas->toPlainText().toStdString();
+        string equipoUsar = ui->TE_Equipos->toPlainText().toStdString();
+
+        //SolicitanteRepetible *asol = new SolicitanteRepetible(
+                    //)
+        SolicitanteRepetible *sol = new SolicitanteRepetible(
+                    nombreCompleto,
+                    numCuenta,
+                    correo,
+                    cantP,
+                    nombresCuentas,
+                    equipoUsar,
+                    fecha,
+                    indexInicio,
+                    indexFinal,
+                    rep
+         );
+        Reserva *newRes = new Reserva(
+                    lab,ui->lineEdit_ClaseRequerida->text().toStdString(),
+                    ui->lineEdit_MotivoUso->text().toStdString(),
+                    dynamic_cast<Solicitante *>(sol)
+                    );
+
+        reservas.push_back(newRes);
+    }else if(opcion=="Educación Continua"){
+        QDate fecha = ui->DE_Fecha->date();
+        string lab = ui->CBX_LabSol->currentText().toStdString();
+        int indexInicio = ui->CBX_HInicio->currentIndex();
+        int indexFinal = ui->CBX_HFinal->currentIndex();
+
+           // TODO: REVISAR QUE ESTE DENTRO DE LAS HORAS POSIBLES
+        int cantP = ui->spinBox_CantIntegrantes->value();
+
+
+        string repetirOpcion = ui->CBX_RepReserv->currentText().toStdString();
+        RepetirReserva rep;
+        if (repetirOpcion == "Weekly")
+            rep = RepetirReserva(Weekly);
+        else if (repetirOpcion == "Daily")
+            rep = RepetirReserva(Daily);
+        else
+            rep = RepetirReserva(NoRepeat);
+
+        string nombreCompleto = ui->lineEdit_NomComp->text().toStdString();
+        string numCuenta =  ui->lineEdit_NumCuenta->text().toStdString();
+        string correo = ui->lineEdit_Correo->text().toStdString();
+        string nombresCuentas = ui->TE_Nombres_Cuentas->toPlainText().toStdString();
+        string equipoUsar = ui->TE_Equipos->toPlainText().toStdString();
+
+        //SolicitanteRepetible *asol = new SolicitanteRepetible(
+                    //)
+        SolicitanteRepetible *sol = new SolicitanteRepetible(
+                    nombreCompleto,
+                    numCuenta,
+                    correo,
+                    cantP,
+                    nombresCuentas,
+                    equipoUsar,
+                    fecha,
+                    indexInicio,
+                    indexFinal,
+                    rep
+         );
+        Reserva *newRes = new Reserva(
+                    lab,ui->lineEdit_ClaseRequerida->text().toStdString(),
+                    ui->lineEdit_MotivoUso->text().toStdString(),
+                    dynamic_cast<Solicitante *>(sol)
+                    );
+
+        reservas.push_back(newRes);
+    }else if(opcion=="Alumno"){
+        QDate fecha = ui->DE_Fecha->date();
+        string lab = ui->CBX_LabSol->currentText().toStdString();
+        int indexInicio = ui->CBX_HInicio->currentIndex();
+        int indexFinal = ui->CBX_HFinal->currentIndex();
+
+           // TODO: REVISAR QUE ESTE DENTRO DE LAS HORAS POSIBLES
+        int cantP = ui->spinBox_CantIntegrantes->value();
+        string nombreCompleto = ui->lineEdit_NomComp->text().toStdString();
+        string numCuenta =  ui->lineEdit_NumCuenta->text().toStdString();
+        string correo = ui->lineEdit_Correo->text().toStdString();
+        string nombresCuentas = ui->TE_Nombres_Cuentas->toPlainText().toStdString();
+        string equipoUsar = ui->TE_Equipos->toPlainText().toStdString();
+
+        //SolicitanteRepetible *asol = new SolicitanteRepetible(
+                    //)
+        Solicitante *sol = new Solicitante(
+                    nombreCompleto,
+                    numCuenta,
+                    correo,
+                    cantP,
+                    nombresCuentas,
+                    equipoUsar,
+                    fecha,
+                    indexInicio,
+                    indexFinal
+         );
+        Reserva *newRes = new Reserva(
+                    lab,ui->lineEdit_ClaseRequerida->text().toStdString(),
+                    ui->lineEdit_MotivoUso->text().toStdString(),
+                    dynamic_cast<Solicitante *>(sol)
+                    );
+
+        reservas.push_back(newRes);
     }
+
 }
 
