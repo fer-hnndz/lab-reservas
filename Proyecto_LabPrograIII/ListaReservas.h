@@ -10,8 +10,9 @@ using std::cout;
 /*
  * Esta clase es una lista anidada que guarda todas las reservas cargadas del archivo
  */
+class Cframe;
 class ListaReservas {
-
+    friend Cframe;
 private:
     Reserva *head;
 

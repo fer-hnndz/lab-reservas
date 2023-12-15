@@ -6,6 +6,9 @@
 #include <QDate>
 #include <HorasReservadas.h>
 #include <Reserva.h>
+#include <iostream>
+
+using std::cout;
 /*
  * Clase que almacena las horas reservadas para un dia en especifico
  */
@@ -13,11 +16,13 @@
 class ReservaDia {
 public:
     QDate fecha;
+    string lab;
     HorasReservadas *horas[HORAS_CONST];
 
     // Constructor
-    ReservaDia(QDate fecha, Reserva *reservasHead) {
+    ReservaDia(QDate fecha, string lab, Reserva *reservasHead) {
         this->fecha = fecha;
+        this->lab = lab;
 
         // Empezar todo libre
         for (int i = 0; i < HORAS_CONST; i++) {
@@ -30,6 +35,12 @@ public:
 
             // Si no es la fecha del dia actual, seguir
             if (res->perfil->fechaReservacion != fecha) {
+                res = res->next;
+                continue;
+            }
+
+            // Verificar que sea del mismo lab
+            if ( !(res->labSolicitado == lab)) {
                 res = res->next;
                 continue;
             }
@@ -60,6 +71,24 @@ public:
         for (int i = 0; i < HORAS_CONST; i++) {
             delete horas[i];
         }
+    }
+
+    void imprimirDia() {
+        for (int i = 0; i < HORAS_CONST; i++) {
+            if (horas[i]->esInicio()) {
+                cout << "I ";
+                continue;
+            };
+
+            if (horas[i]->esFinal()) {
+                cout << "F ";
+                continue;
+            }
+            if (horas[i]->esReservado()) cout << "R ";
+            else cout << "O ";
+        }
+
+        cout << "\n";
     }
 
 };

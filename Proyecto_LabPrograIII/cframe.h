@@ -32,5 +32,8 @@ private:
     ListaReservas reservas;
     std::vector<ReservaDia> reservasDia;
 
+    bool puedeReservar(int horaInicio, int horaFinal, QDate fecha, string lab);
+    void agregarReservaDia(QDate fecha, string lab, int horaInicio, int horaFinal);
+
 };
 #endif // CFRAME_H

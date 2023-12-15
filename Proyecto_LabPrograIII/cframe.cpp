@@ -47,11 +47,114 @@ Cframe::~Cframe(){
     delete ui;
 }
 
+/*
+ * ===========================================
+ * Codigo de Horas Dia
+ * ==========================================
+ */
+
+bool Cframe::puedeReservar(int horaInicio, int horaFinal, QDate fecha, string lab) {
+    ReservaDia *res = nullptr;
+
+    // Revisar si existe alguna reservacion para ese dia
+    for (int i = 0; i < reservasDia.size(); i++) {
+        if (reservasDia[i].fecha == fecha && reservasDia[i].lab == lab) {
+            cout << "[puedeReservar] Se encontro res para lab:" << lab << " en " << fecha.toString().toStdString() <<
+                    "\n";
+            res = &reservasDia[i];
+            break;
+        }
+    }
+
+    // No existe ninguna reservacion para ese dia, por ende, tiene todo el dia libre.
+    if (res == nullptr) {
+        cout << res;
+        cout << "[puedeReservar] No existe reservacion para ese dia\n";
+        return true;
+    }
+
+    // Verificaciones si se puede reservar
+
+    if (res->horas[horaInicio]->esReservado()) {
+        if (res->horas[horaInicio]->esInicio()) {
+            cout << "La hora de inicio ya es un inicio.\n";
+            return false;
+        }
+        //if (res->horas[horaInicio]->esFinal()) return true;
+
+        // Si no es ni inicio y tampoco final (esta en medio de otro lab)
+        if ( !(res->horas[horaInicio]->esInicio()) && !(res->horas[horaInicio]->esFinal()) ) {
+            cout << "[puedeReservar] Hora de inicio se encuentra en medio de un lab\n";
+            return false;}
+    }
+
+    // Recorrer de inicio a final para ver que todas las horas esten libres
+    for (int i = horaInicio + 1; i < horaFinal; i++) {
+        if (res->horas[i]->esReservado()) {
+            cout << "[puedeReservar] Se encontro un reservado en medio del recorrido\n";
+            return false;
+        }
+    }
+
+
+    if (res->horas[horaFinal]->esInicio() || !(res->horas[horaFinal]->esReservado()) ) return true;
+    else {
+        cout << "La hora final no es inicio o estaba reservada\n";
+        return false;
+    }
+}
+
+void Cframe::agregarReservaDia(QDate fecha, string lab, int horaInicio, int horaFinal) {
+    // Recorrer el array en busca de las reservas (si existen) para ese dia
+
+    ReservaDia *res = nullptr;
+
+    // Revisar si existe alguna reservacion para ese dia
+    for (int i = 0; i < reservasDia.size(); i++) {
+        if (reservasDia[i].fecha == fecha && reservasDia[i].lab == lab) {
+            res = &reservasDia[i];
+            break;
+        }
+    }
+
+    bool noExistia = false;
+
+    // No existe ninguna reservacion para ese dia, crear
+    if (res == nullptr) {
+        cout << "[agregarReservaDia()] Agregando nuevas reservas para el lab: " << lab << " dia " << fecha.toString().toStdString() << "\n";
+        noExistia = true;
+        res = new ReservaDia(fecha, lab, this->reservas.head);
+    }
+
+
+    // Recorrer desde el inicio hasta el final actualizando valores de horas
+
+    res->horas[horaInicio]->setInicio(true);
+
+    // 0 < 3
+    // 0 -> inicio
+    // 1 - > reservado
+    // 2 -> reservado
+    // 3 -> final
+
+    for (int i = horaInicio + 1; i < horaFinal; i++) {
+        res->horas[i]->setReservado(true);
+    }
+    res->horas[horaFinal]->setFinal(true);
+    res->imprimirDia();
+
+    if (noExistia) {
+        cout << "[agregarReservaDia] Agregando al array de reservas dia porque no existia\n";
+        reservasDia.push_back(*res);
+    }
+    cout << "Size de reservas Dia: " << reservasDia.size() << "\n";
+
+
+}
 
 void Cframe::on_pushButton_clicked(){
 
 }
-
 
 void Cframe::on_CBX_PerfSol_activated(const QString &arg1){
     if (arg1 == "Alumno") {
@@ -73,6 +176,8 @@ void Cframe::on_PB_Enviar_clicked(){
     QString texto_Nombres_Cuentas = ui->TE_Nombres_Cuentas->toPlainText();
     QString texto_TE_Equipos = ui->TE_Equipos->toPlainText();
 
+
+    // Comprobacion campos llenos
     if(texto_ClaseRequerida.isEmpty()||texto_Correo.isEmpty()||texto_MotivoUso.isEmpty()||texto_NomComp.isEmpty()||texto_NumCuenta.isEmpty()||texto_Nombres_Cuentas.trimmed().isEmpty()||texto_TE_Equipos.trimmed().isEmpty()){
           QMessageBox messageBox;
            messageBox.setIcon(QMessageBox::Critical);
@@ -81,16 +186,22 @@ void Cframe::on_PB_Enviar_clicked(){
            messageBox.exec();
            return;
     }
-    // TODO: Limpiar campos y mostrar alerta
     QString opcion = ui->CBX_PerfSol->currentText();
 
     if(opcion=="Docente"){
         QDate fecha = ui->DE_Fecha->date();
         string lab = ui->CBX_LabSol->currentText().toStdString();
         int indexInicio = ui->CBX_HInicio->currentIndex();
-        int indexFinal = ui->CBX_HFinal->currentIndex();
+        int indexFinal = ui->CBX_HFinal->currentIndex() + 2;
 
-           // TODO: REVISAR QUE ESTE DENTRO DE LAS HORAS POSIBLES
+        if ( !puedeReservar(indexInicio, indexFinal, fecha, lab) ) {
+             QMessageBox messageBox;
+             messageBox.setIcon(QMessageBox::Critical);
+             messageBox.setWindowTitle("Error");
+             messageBox.setText("¡Su laboratorio choca con otro laboratorio previamente reservado!");
+             messageBox.exec();
+            return;
+        }
         int cantP = ui->spinBox_CantIntegrantes->value();
 
 
@@ -130,6 +241,7 @@ void Cframe::on_PB_Enviar_clicked(){
                     );
 
         reservas.push_back(newRes);
+        agregarReservaDia(fecha, lab, indexInicio, indexFinal);
         QMessageBox::information(nullptr, "Exito", "Reserva agendada correctamente.");
 
     }else if(opcion=="Administrativo"){

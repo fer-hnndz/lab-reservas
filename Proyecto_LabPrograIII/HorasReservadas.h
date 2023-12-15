@@ -22,12 +22,12 @@ public:
 
     void setInicio(bool i) {
         this->_esInicio = i;
-        if (i) this->_reservado = i; // Setear que esta reservado forzozamente
+        if (i == true) this->_reservado = i; // Setear que esta reservado forzozamente
     }
 
     void setFinal(bool f) {
         this->_esFinal = f;
-        if (f) this->_reservado = f; // Setear que esta reservado forzozamente
+        if (f == true) this->_reservado = f; // Setear que esta reservado forzozamente
     }
 
     void setReservado(bool r) {
