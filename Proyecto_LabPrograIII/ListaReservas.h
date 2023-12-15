@@ -4,7 +4,9 @@
 #include "Reserva.h"
 #include <iostream>
 #include <fstream>
+#include <sstream>
 
+using std::ifstream;
 using std::ofstream;
 using std::cout;
 /*
@@ -22,7 +24,51 @@ public:
         head = nullptr;
         cout << "Instantiated\n";
 
+        ifstream file("reservas.xls", ifstream::in);
+
+        if (!file.is_open()) {
+            return;
+        }
+
+
+        // Skip the header line
+           std::string headerLine;
+           std::getline(file, headerLine);
+
+           string labSolicitado, clase, motivo, perfilText, repetirText, nombreCompleto, cuenta, correo, cantidadPersonasStr, nombresCuentas, equipos, fechaInicioStr, fechaFinalStr;
+
+           // Read and process the rest of the file
+           while (!file.eof()) {
+               // Read a line from the file
+               std::string line;
+               std::getline(file, line);
+
+               // Check for the end of the file
+               if (file.eof()) {
+                   break;
+               }
+
+               // Use a stringstream to extract values from the line
+               std::istringstream ss(line);
+
+               // Read values into variables
+               ss >> labSolicitado >> clase >> motivo >> perfilText >> repetirText >> nombreCompleto
+                  >> cuenta >> correo >> cantidadPersonasStr >> nombresCuentas >> equipos
+                  >> fechaInicioStr >> fechaFinalStr;
+
+               // Process the values (replace this with your actual processing logic)
+               std::cout << "Read values: " << labSolicitado << ", " << clase << ", " << motivo << ", "
+                         << perfilText << ", " << repetirText << ", " << nombreCompleto << ", "
+                         << cuenta << ", " << correo << ", " << cantidadPersonasStr << ", "
+                         << nombresCuentas << ", " << equipos << ", " << fechaInicioStr << ", "
+                         << fechaFinalStr << std::endl;
+           }
+
+        file.close();
+
     }
+
+
     ~ListaReservas() {
         ofstream file("reservas.xls", ofstream::out); // No ponerle app ya que vamos a volver a escribir toda la lista, por lo cual nada se va a duplicar
         cout << "Destruyendo Lista...\n";

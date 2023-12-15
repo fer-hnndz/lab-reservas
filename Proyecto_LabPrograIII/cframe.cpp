@@ -13,8 +13,8 @@ Cframe::Cframe(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Cframe)
 {
-    ListaReservas list;
-    this->reservas = list;
+    //ListaReservas list;
+    //this->reservas = list;
 
     // TODO: Cargar data el excel y llenar list
     // Llenar reservas dia con info en base a list
