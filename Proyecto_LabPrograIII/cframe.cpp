@@ -215,7 +215,7 @@ void Cframe::on_PB_Enviar_clicked(){
                 QMessageBox messageBox;
                  messageBox.setIcon(QMessageBox::Critical);
                  messageBox.setWindowTitle("Error");
-                 messageBox.setText("La hora final no puede ser anterior a la hora de inicio.");
+                 messageBox.setText("La hora final tiene que ser despues de la hora inicial.");
                  messageBox.exec();
                  return;
 

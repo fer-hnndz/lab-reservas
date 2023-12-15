@@ -1109,11 +1109,6 @@ border-color: rgb(33, 33, 33);</string>
       </item>
      </widget>
     </widget>
-    <widget class="QWidget" name="tab_2">
-     <attribute name="title">
-      <string>Ver Reservados</string>
-     </attribute>
-    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -1122,7 +1117,7 @@ border-color: rgb(33, 33, 33);</string>
      <x>0</x>
      <y>0</y>
      <width>759</width>
-     <height>30</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
