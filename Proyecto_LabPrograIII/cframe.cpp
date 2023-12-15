@@ -193,21 +193,22 @@ void Cframe::on_PB_Enviar_clicked(){
     }
 
         int indexInicio = ui->CBX_HInicio->currentIndex();
-        int indexFinal = indexInicio + 2;
+        int indexFinal = ui->CBX_HFinal->currentIndex() + 2;
 
+            /*
             // Asegurar que el índice de la hora final no supere el último índice disponible
             if (indexFinal >= ui->CBX_HFinal->count()) {
                 indexFinal = ui->CBX_HFinal->count() - 1;
             }
+            */
 
-            // Establecer la hora final al mínimo permitido (hora de inicio + 2)
-            ui->CBX_HFinal->setCurrentIndex(indexFinal);
-            if (indexFinal >= ui->CBX_HFinal->count() || indexFinal < indexInicio) {
+            if (indexFinal <= indexInicio) {
                 QMessageBox messageBox;
                  messageBox.setIcon(QMessageBox::Critical);
                  messageBox.setWindowTitle("Error");
                  messageBox.setText("La hora final no puede ser anterior a la hora de inicio.");
                  messageBox.exec();
+                 return;
 
            }
 
