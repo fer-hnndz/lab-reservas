@@ -17,6 +17,14 @@ Cframe::Cframe(QWidget *parent)
     //ListaReservas list;
     //this->reservas = list;
 
+    // Cargar para reservasDia
+    Reserva *res = reservas.head;
+
+    while (res != nullptr) {
+        agregarReservaDia(res->perfil->fechaReservacion, res->labSolicitado, res->perfil->horaInicio, res->perfil->horaFinal);
+        res = res->next;
+
+    }
     // TODO: Cargar data el excel y llenar list
     // Llenar reservas dia con info en base a list
 

@@ -110,7 +110,6 @@ public:
             push_back(reserva);
         }
         file.close();
-
     }
 
 

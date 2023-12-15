@@ -7,10 +7,12 @@ using std::string;
 
 class ListaReservas;
 class ReservaDia;
+class Cframe;
 
 class Reserva{
     friend ListaReservas;
     friend ReservaDia;
+    friend Cframe;
 private:
     Reserva *next;
 
