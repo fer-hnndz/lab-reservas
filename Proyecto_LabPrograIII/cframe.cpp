@@ -255,7 +255,16 @@ void Cframe::on_PB_Enviar_clicked(){
         QDate fecha = ui->DE_Fecha->date();
         string lab = ui->CBX_LabSol->currentText().toStdString();
         int indexInicio = ui->CBX_HInicio->currentIndex();
-        int indexFinal = ui->CBX_HFinal->currentIndex();
+        int indexFinal = ui->CBX_HFinal->currentIndex()+2;
+
+        if ( !puedeReservar(indexInicio, indexFinal, fecha, lab) ) {
+             QMessageBox messageBox;
+             messageBox.setIcon(QMessageBox::Critical);
+             messageBox.setWindowTitle("Error");
+             messageBox.setText("¡Su laboratorio choca con otro laboratorio previamente reservado!");
+             messageBox.exec();
+            return;
+        }
 
            // TODO: REVISAR QUE ESTE DENTRO DE LAS HORAS POSIBLES
         int cantP = ui->spinBox_CantIntegrantes->value();
@@ -299,22 +308,24 @@ void Cframe::on_PB_Enviar_clicked(){
 
         newRes->setRepetirText(repetirOpcion);
         reservas.push_back(newRes);
+        agregarReservaDia(fecha, lab, indexInicio, indexFinal);
         QMessageBox::information(nullptr, "Exito", "Reserva agendada correctamente.");
 
 
-        ui->lineEdit_ClaseRequerida->clear();
-        ui->lineEdit_Correo->clear();
-        ui->lineEdit_NomComp->clear();
-        ui->lineEdit_NumCuenta->clear();
-        ui->TE_Nombres_Cuentas->clear();
-        ui->TE_Equipos->clear();
-        ui->lineEdit_MotivoUso->clear();
-
-    }else if(opcion=="Educación Continua"){
+    }else if(opcion=="Educación Continua "){
         QDate fecha = ui->DE_Fecha->date();
         string lab = ui->CBX_LabSol->currentText().toStdString();
         int indexInicio = ui->CBX_HInicio->currentIndex();
-        int indexFinal = ui->CBX_HFinal->currentIndex();
+        int indexFinal = ui->CBX_HFinal->currentIndex()+2;
+
+        if ( !puedeReservar(indexInicio, indexFinal, fecha, lab) ) {
+             QMessageBox messageBox;
+             messageBox.setIcon(QMessageBox::Critical);
+             messageBox.setWindowTitle("Error");
+             messageBox.setText("¡Su laboratorio choca con otro laboratorio previamente reservado!");
+             messageBox.exec();
+            return;
+        }
 
            // TODO: REVISAR QUE ESTE DENTRO DE LAS HORAS POSIBLES
         int cantP = ui->spinBox_CantIntegrantes->value();
@@ -359,6 +370,7 @@ void Cframe::on_PB_Enviar_clicked(){
         newRes->setRepetirText(repetirOpcion);
 
         reservas.push_back(newRes);
+        agregarReservaDia(fecha, lab, indexInicio, indexFinal);
         QMessageBox::information(nullptr, "Exito", "Reserva agendada correctamente.");
 
         ui->lineEdit_ClaseRequerida->clear();
@@ -372,7 +384,16 @@ void Cframe::on_PB_Enviar_clicked(){
         QDate fecha = ui->DE_Fecha->date();
         string lab = ui->CBX_LabSol->currentText().toStdString();
         int indexInicio = ui->CBX_HInicio->currentIndex();
-        int indexFinal = ui->CBX_HFinal->currentIndex();
+        int indexFinal = ui->CBX_HFinal->currentIndex()+ 2;
+
+        if ( !puedeReservar(indexInicio, indexFinal, fecha, lab) ) {
+             QMessageBox messageBox;
+             messageBox.setIcon(QMessageBox::Critical);
+             messageBox.setWindowTitle("Error");
+             messageBox.setText("¡Su laboratorio choca con otro laboratorio previamente reservado!");
+             messageBox.exec();
+            return;
+        }
 
            // TODO: REVISAR QUE ESTE DENTRO DE LAS HORAS POSIBLES
         int cantP = ui->spinBox_CantIntegrantes->value();
@@ -403,6 +424,7 @@ void Cframe::on_PB_Enviar_clicked(){
                     );
 
         reservas.push_back(newRes);
+        agregarReservaDia(fecha, lab, indexInicio, indexFinal);
         QMessageBox::information(nullptr, "Exito", "Reserva agendada correctamente.");
         ui->lineEdit_ClaseRequerida->clear();
         ui->lineEdit_Correo->clear();
