@@ -1,4 +1,4 @@
-#ifndef LISTARESERVAS_H
+    #ifndef LISTARESERVAS_H
 #define LISTARESERVAS_H
 
 #include "Reserva.h"
@@ -37,10 +37,14 @@ public:
         int nodosRecorridos = 0;
         cout << "[~ListasReservas()] Intentando eliminar todos los nodos de la lista...\n";
 
-        file << "Nombre Estudiante,Fecha\n";
+       // Formato de Excel
+        file << "Lab Solicitado\tClase para la que requiere laboratorio\tMotivo de Reserva\tPerfil de Solicitante\tRepetir Reservacion\tNombre Completo\tNumero de Cuenta\tCorreo\tCantidad de Integrantes\tNombres y Numeros de Cuenta de Integrantes\tEquipo a utilzarse\tFecha de Reserva\tHora Inicio\tHora Final\n";
         while (resActual != nullptr) {
             // Guardar en archivo
-            file << resActual->perfil->nombreCompleto << "," << resActual->perfil->fechaReservacion.toString().toStdString() << "\n";
+
+            // TODO: GUARDAR EL NOMBRE DEL PERFIL EN DONDE ESTA LA DOBLE COMA
+            Solicitante *sol = resActual->perfil;
+            file << resActual->labSolicitado << "\t" << resActual->clase << "\t" << resActual->motivo << "\tPERFIL\tREPETIR\t" << sol->nombreCompleto << "\t" << sol->cuenta << "\t" << sol->correo << "\t" << sol->cantidadPersonas << "\t" << sol->nombreCuentas << "\t" << sol->equipos << "\t" << sol->fechaReservacion.toString().toStdString() << "\t" << sol->horaInicio << "\t" << sol->horaFinal<< "\n";
 
             tempRes = resActual;
             resActual = resActual->next;
