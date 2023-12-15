@@ -27,43 +27,88 @@ public:
         ifstream file("reservas.xls", ifstream::in);
 
         if (!file.is_open()) {
+            std::cerr << "No se pudo abrir el archivo." << std::endl;
             return;
         }
 
-         string horas[11] = {"6:40", "8:10", "9:55", "11:15", "12:35", "13:20", "14:40", "16:00", "17:20", "18:40", "20:00"};
+         string horasStr[11] = {"6:40", "8:10", "9:55", "11:15", "12:35", "13:20", "14:40", "16:00", "17:20", "18:40", "20:00"};
 
-        // Skip the header line
-           std::string headerLine;
-           std::getline(file, headerLine);
 
-           string labSolicitado, clase, motivo, perfilText, repetirText, nombreCompleto, cuenta, correo, cantidadPersonasStr, nombresCuentas, equipos, fechaInicioStr, fechaFinalStr;
+        // Lectura y procesamiento del archivo
+        std::string line;
+        std::getline(file, line); // Salta la línea del encabezado si es aplicable
 
-           // Read and process the rest of the file
-           while (!file.eof()) {
-               // Read a line from the file
-               std::string line;
-               std::getline(file, line);
+        // Cargar datos a archivo
+        while (std::getline(file, line)) {
+            std::istringstream ss(line);
 
-               // Check for the end of the file
-               if (file.eof()) {
-                   break;
-               }
+            // Lee los valores desde el archivo para crear objetos Solicitante
+            string labSolicitado, clase, motivo, perfilText, repetirText, nombreCompleto, cuenta, correo, nombreCuentas, equipos, fechaReservacionStr, horaInicioStr, horaFinalStr, cantidadPersonasStr;
+            int cantidadPersonas, horaInicio, horaFinal;
+            std::getline(ss, labSolicitado, '\t');
+            std::getline(ss, clase, '\t');
+            std::getline(ss, motivo, '\t');
+            std::getline(ss, perfilText, '\t');
+            std::getline(ss, repetirText, '\t');
+            std::getline(ss, nombreCompleto, '\t');
+            std::getline(ss, cuenta, '\t');
+            std::getline(ss, correo, '\t');
+            std::getline(ss, cantidadPersonasStr, '\t');
+            cantidadPersonas = std::stoi(cantidadPersonasStr);
+            std::getline(ss, nombreCuentas, '\t');
+            std::getline(ss, equipos, '\t');
+            std::getline(ss, fechaReservacionStr, '\t');
+            std::getline(ss, horaInicioStr, '\t');
+            std::getline(ss, horaFinalStr);
 
-               // Use a stringstream to extract values from the line
-               std::istringstream ss(line);
+            // Solo para probar si se guardan bien los datos
+            cout << labSolicitado <<std::endl;
+            cout << clase << std::endl;
+            cout << motivo << std::endl;
+            cout << perfilText << std::endl;
+            cout << repetirText << std::endl;
+            cout << nombreCompleto << std::endl;
+            cout << cuenta << std::endl;
+            cout << correo << std::endl;
+            cout << cantidadPersonas << "\n";
+            cout << nombreCuentas << std::endl;
+            cout << equipos << std::endl;
+            cout << "==================\n";
 
-               // Read values into variables
-               ss >> labSolicitado >> clase >> motivo >> perfilText >> repetirText >> nombreCompleto
-                  >> cuenta >> correo >> cantidadPersonasStr >> nombresCuentas >> equipos
-                  >> fechaInicioStr >> fechaFinalStr;
+            // Convierte las cadenas a los tipos de datos correspondientes
+            QDate fechaReservacion = QDate::fromString(QString::fromStdString(fechaReservacionStr));
+            cout << fechaReservacion.toString().toStdString() << "\n";
+            cout << horaInicioStr << "\n"; // IMPRIME
+            cout << fechaReservacion.toString().toStdString() << "\n";
+            cout << "Transofmrando hora...\n";
+            for (int iter = 0; iter < 11; iter++) {
+                if (horasStr[iter] == horaInicioStr) {
+                    horaInicio = iter;
+                }
+            }
 
-               // Process the values (replace this with your actual processing logic)
-               std::cout << "Read values: " << labSolicitado << ", " << clase << ", " << motivo << ", "
-                         << perfilText << ", " << repetirText << ", " << nombreCompleto << ", "
-                         << cuenta << ", " << correo << ", " << cantidadPersonasStr << ", "
-                         << nombresCuentas << ", " << equipos << ", " << fechaInicioStr << ", "
-                         << fechaFinalStr << std::endl;
-           }
+            for (int iter = 0; iter < 11; iter++) {
+                if (horasStr[iter] == horaFinalStr) {
+                    horaFinal = iter;
+                }
+            }
+
+            cout << horaInicioStr << "\n";
+            cout << horaFinalStr << "\n";
+            cout << horaInicio << "\n";
+            cout << horaFinal << "\n";
+
+            cout << "TERMINADO IMPRIMIR DATA\n";
+
+            // Crea un objeto Solicitante con los datos leídos
+            Solicitante *solicitante = new Solicitante(nombreCompleto, cuenta, correo, cantidadPersonas, nombreCuentas, equipos, fechaReservacion, horaInicio, horaFinal);
+
+            // Crea un objeto Reserva con el objeto Solicitante
+            Reserva *reserva = new Reserva(labSolicitado, clase, motivo, solicitante, perfilText);
+
+            // Agrega la reserva a la lista ListaReservas
+            push_back(reserva);
+        }
         file.close();
 
     }
@@ -79,7 +124,7 @@ public:
         int nodosRecorridos = 0;
         cout << "[~ListasReservas()] Intentando eliminar todos los nodos de la lista...\n";
 
-       // Formato de Excel
+        // Formato de Excel
         file << "Lab Solicitado\tClase para la que requiere laboratorio\tMotivo de Reserva\tPerfil de Solicitante\tRepetir Reservacion\tNombre Completo\tNumero de Cuenta\tCorreo\tCantidad de Integrantes\tNombres y Numeros de Cuenta de Integrantes\tEquipo a utilzarse\tFecha de Reserva\tHora Inicio\tHora Final\n";
 
 

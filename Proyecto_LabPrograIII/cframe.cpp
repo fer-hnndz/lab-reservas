@@ -161,10 +161,6 @@ void Cframe::agregarReservaDia(QDate fecha, string lab, int horaInicio, int hora
 
 }
 
-void Cframe::on_pushButton_clicked(){
-
-}
-
 void Cframe::on_CBX_PerfSol_activated(const QString &arg1){
     if (arg1 == "Alumno") {
        ui->CBX_RepReserv->setVisible(false);
